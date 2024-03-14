@@ -2,6 +2,12 @@
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
     <p class="list-group-item-text">{{ recipe.description }}</p>
+    <p><strong>Meal Type:</strong> {{ recipe.mealType }}</p>
+    <p><strong>Allergens:</strong> {{ recipe.allergens.join(", ") }}</p>
+    <p>
+      <strong>Dietary Requirements:</strong>
+      {{ recipe.dietaryRequirements.join(", ") }}
+    </p>
   </div>
   <span class="pull-right">
     <img

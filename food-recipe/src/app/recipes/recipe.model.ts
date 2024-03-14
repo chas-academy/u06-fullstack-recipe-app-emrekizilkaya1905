@@ -5,16 +5,25 @@ export class Recipe {
   public description: string;
   public imagePath: string;
   public ingredients: Ingredient[];
+  public mealType: string;
+  public allergens: string[];
+  public dietaryRequirements: string[];
 
   constructor(
     name: string,
     desc: string,
     imagePath: string,
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    mealType: string,
+    allergens: string[],
+    dietaryRequirements: string[]
   ) {
     this.name = name;
     this.description = desc;
     this.imagePath = imagePath;
     this.ingredients = ingredients;
+    this.mealType = mealType;
+    this.allergens = allergens;
+    this.dietaryRequirements = dietaryRequirements;
   }
 }

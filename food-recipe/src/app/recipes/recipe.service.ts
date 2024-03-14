@@ -12,13 +12,19 @@ export class RecipeService {
       'Tasty Schnitzel',
       'A super tasty Tasty Schnitzel - just awesome!',
       'https://shared.cdn.smp.schibsted.com/v2/images/f3a4c906-db28-48a5-a276-a414be2633c7?fit=crop&h=623&w=1000&s=a22f70005f26bc3aeef7fffd18f8d4fd8b0c3c84',
-      [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)]
+      [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)],
+      'Main Food', // Öğle yemeği, ana yemek, tatlı gibi
+      ['Gluten'], // Alerjenlerin listesi
+      ['Vegetarian'] // Diyet gereksinimlerinin listesi (örneğin: vegan, vejetaryen, glütensiz)
     ),
     new Recipe(
       'Big Fat Burger',
       'What else do you need to say?',
       'https://bigfatburgers.com/wp-content/uploads/2019/07/DoubleBaconCheeseBurger.jpg',
-      [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
+      [new Ingredient('Buns', 2), new Ingredient('Meat', 1)],
+      'Main Food',
+      ['Gluten'],
+      ['Vegetarian']
     ),
   ];
 
