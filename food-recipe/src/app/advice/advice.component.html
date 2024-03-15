@@ -1,1 +1,25 @@
-<p>advice works!</p>
+<h2>Today's Advice</h2>
+<div *ngIf="randomRecipe" class="recipe-details">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        [src]="randomRecipe.imagePath"
+        alt="{{ randomRecipe.name }}"
+        class="img-responsive"
+      />
+    </div>
+    <div class="col-md-8">
+      <h3>{{ randomRecipe.name }}</h3>
+      <p>{{ randomRecipe.description }}</p>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let ingredient of randomRecipe.ingredients"
+        >
+          <span class="ingredient-name">{{ ingredient.name }}</span
+          >: <span class="ingredient-amount">{{ ingredient.amount }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

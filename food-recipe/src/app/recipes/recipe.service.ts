@@ -35,4 +35,8 @@ export class RecipeService {
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
+  getRandomRecipe(): Recipe {
+    const randomIndex = Math.floor(Math.random() * this.recipes.length);
+    return this.recipes[randomIndex];
+  }
 }
