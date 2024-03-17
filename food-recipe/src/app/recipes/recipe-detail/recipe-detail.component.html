@@ -25,8 +25,8 @@
             >To Shopping List</a
           >
         </li>
-        <li><a href="#">Edit Recipe</a></li>
-        <li><a href="#">Delete Recipe</a></li>
+        <li><a>Edit Recipe</a></li>
+        <li><a>Delete Recipe</a></li>
       </ul>
     </div>
   </div>
@@ -45,7 +45,9 @@
 </div>
 <div class="col-xs-12">
   <p><strong>Meal Type:</strong> {{ recipe.mealType }}</p>
-  <p><strong>Allergens:</strong> {{ recipe.allergens.join(', ') }}</p>
-  <p><strong>Dietary Requirements:</strong> {{ recipe.dietaryRequirements.join(', ') }}</p>
+  <p><strong>Allergens:</strong> {{ recipe.allergens.join(", ") }}</p>
+  <p>
+    <strong>Dietary Requirements:</strong>
+    {{ recipe.dietaryRequirements.join(", ") }}
+  </p>
 </div>
-
