@@ -39,4 +39,7 @@ export class RecipeService {
     const randomIndex = Math.floor(Math.random() * this.recipes.length);
     return this.recipes[randomIndex];
   }
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
 }
