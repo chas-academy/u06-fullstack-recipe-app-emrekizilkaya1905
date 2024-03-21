@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -31,10 +31,7 @@ export class RecipeService {
     }),
   };
 
-  constructor(
-    private slService: ShoppingListService,
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
   getRecipes(searchterm: string): Observable<Recipe[]> {
     let quisineType = 'American'; //could be sent as parameter
     let mealType = 'Breakfast'; //could be sent as parameter
@@ -69,9 +66,6 @@ export class RecipeService {
     );
   }
 
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
-  }
   getRandomRecipe(): Recipe {
     const randomIndex = Math.floor(Math.random() * this.recipes.length);
     return this.recipes[randomIndex];
