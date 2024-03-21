@@ -10,13 +10,15 @@ import { ShoppingListService } from '../shopping-list.service';
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
+  @ViewChild('measureInput') measureInputRef: ElementRef;
   constructor(private slService: ShoppingListService) {}
 
   ngOnInit() {}
   onAddItem() {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
-    const newIngredient = new Ingredient(ingName, ingAmount);
+    const ingMeasure = this.measureInputRef.nativeElement.value; // Ölçüyü alma
+    const newIngredient = new Ingredient(ingName, ingAmount, ingMeasure); // Ölçüyü ekle
     this.slService.addIngredient(newIngredient);
   }
 }

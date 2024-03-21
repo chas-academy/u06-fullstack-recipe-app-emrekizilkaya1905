@@ -1,29 +1,29 @@
 import { Ingredient } from '../shared/ingredient.model';
 
 export class Recipe {
-  public name: string;
-  public description: string;
-  public imagePath: string;
+  public id: string;
+  public label: string;
+  public dishType: string[];
   public ingredients: Ingredient[];
-  public mealType: string;
-  public allergens: string[];
-  public dietaryRequirements: string[];
+  public image: { url: string; width: number; height: number };
+  public mealType: string[];
+  public totalTime: number;
 
   constructor(
-    name: string,
-    desc: string,
-    imagePath: string,
+    id: string,
+    label: string,
+    dishType: string[],
     ingredients: Ingredient[],
-    mealType: string,
-    allergens: string[],
-    dietaryRequirements: string[]
+    image: { url: string; width: number; height: number },
+    mealType: string[],
+    totalTime: number
   ) {
-    this.name = name;
-    this.description = desc;
-    this.imagePath = imagePath;
+    this.id = id;
+    this.label = label;
+    this.dishType = dishType;
     this.ingredients = ingredients;
+    this.image = image;
     this.mealType = mealType;
-    this.allergens = allergens;
-    this.dietaryRequirements = dietaryRequirements;
+    this.totalTime = totalTime;
   }
 }
