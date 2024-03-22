@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
-import { Ingredient } from '../shared/ingredient.model';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -65,36 +64,6 @@ export class RecipeService {
       })
     );
   }
-
-  getRandomRecipe(): Recipe {
-    const randomIndex = Math.floor(Math.random() * this.recipes.length);
-    return this.recipes[randomIndex];
-  }
-
-  // getRecipe(index: string) {
-  //   console.log(index);
-  //   this.http
-  //     .get(
-  //       'https://api.edamam.com/api/recipes/v2/' +
-  //         index +
-  //         '?type=public&app_id=9bb52f29&app_key=%20c1334239f8df865c87bfa0f1d7bf3429%09',
-  //       this.httpOptions
-  //     )
-  //     .subscribe((data: any) => {
-  //       console.log(data);
-  //       const recipeData = data.recipe;
-  //       this.recipe = new Recipe(
-  //         recipeData.uri.split('_')[1],
-  //         recipeData.label,
-  //         recipeData.dishType,
-  //         recipeData.ingredients,
-  //         recipeData.image,
-  //         recipeData.mealType,
-  //         recipeData.totalTime // Burada Recipe modeline uygun bir şekilde ingredients dizisini oluşturmanız gerekiyor
-  //       );
-  //     });
-  //   return this.recipe;
-  // }
 
   getRecipe(index: string): Observable<Recipe> {
     console.log(index);

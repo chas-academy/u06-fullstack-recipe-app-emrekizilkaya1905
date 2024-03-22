@@ -1,10 +1,8 @@
-import { Ingredient } from '../shared/ingredient.model';
-
 export class Recipe {
   public id: string;
   public label: string;
   public dishType: string[];
-  public ingredients: Ingredient[];
+  public ingredients: string[];
   public image: { url: string; width: number; height: number };
   public mealType: string[];
   public totalTime: number;
@@ -13,7 +11,7 @@ export class Recipe {
     id: string,
     label: string,
     dishType: string[],
-    ingredients: Ingredient[],
+    ingredients: string[],
     image: { url: string; width: number; height: number },
     mealType: string[],
     totalTime: number
