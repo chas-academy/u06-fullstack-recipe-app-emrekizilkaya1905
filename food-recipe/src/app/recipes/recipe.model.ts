@@ -5,7 +5,8 @@ export class Recipe {
   public ingredients: string[];
   public image: { url: string; width: number; height: number };
   public mealType: string[];
-  public totalTime: number;
+  public dietLabels: string[];
+  public cautions: string[];
 
   constructor(
     id: string,
@@ -14,7 +15,8 @@ export class Recipe {
     ingredients: string[],
     image: { url: string; width: number; height: number },
     mealType: string[],
-    totalTime: number
+    dietLabels: string[],
+    cautions: string[]
   ) {
     this.id = id;
     this.label = label;
@@ -22,6 +24,7 @@ export class Recipe {
     this.ingredients = ingredients;
     this.image = image;
     this.mealType = mealType;
-    this.totalTime = totalTime;
+    this.dietLabels = dietLabels;
+    this.cautions = cautions;
   }
 }

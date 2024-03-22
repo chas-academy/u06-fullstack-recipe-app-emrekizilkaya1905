@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,7 +14,8 @@ export class RecipeService {
     ingredients: [],
     image: { url: '', width: 0, height: 0 },
     mealType: [],
-    totalTime: 0,
+    dietLabels: [],
+    cautions: [],
   };
 
   private recipes: Recipe[] = [];
@@ -53,7 +53,8 @@ export class RecipeService {
             recipeData.ingredients,
             recipeData.image,
             recipeData.mealType,
-            recipeData.totalTime // Burada Recipe modeline uygun bir şekilde ingredients dizisini oluşturmanız gerekiyor
+            recipeData.dietLabels,
+            recipeData.cautions
           );
         });
       })
@@ -80,7 +81,8 @@ export class RecipeService {
             recipeData.ingredients,
             recipeData.image,
             recipeData.mealType,
-            recipeData.totalTime // Burada Recipe modeline uygun bir şekilde ingredients dizisini oluşturmanız gerekiyor
+            recipeData.dietLabels,
+            recipeData.cautions
           );
         })
       );

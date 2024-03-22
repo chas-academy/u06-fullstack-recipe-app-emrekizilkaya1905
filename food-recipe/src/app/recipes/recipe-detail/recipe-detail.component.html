@@ -1,43 +1,22 @@
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">
-    <img
-      [src]="recipe.image"
-      alt="{{ recipe.label }}"
-      class="img-responsive"
-      style="max-height: 300px"
-    />
+<div *ngIf="recipe" class="card">
+  <img
+    [src]="recipe.image"
+    class="card-img-top rounded-top"
+    alt="{{ recipe.label }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.label }}</h5>
+    <p class="card-text"><strong>Ingredients:</strong></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.text }}
+      </li>
+    </ul>
+    <p class="card-text"><strong>Meal Type:</strong> {{ recipe.mealType }}</p>
+    <p class="card-text"><strong>Dish Type:</strong> {{ recipe.dishType }}</p>
+    <p class="card-text">
+      <strong>Diet Labels:</strong> {{ recipe.dietLabels }}
+    </p>
+    <p class="card-text"><strong>Cautions:</strong> {{ recipe.cautions }}</p>
   </div>
-</div>
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">
-    <h1>{{ recipe.label }}</h1>
-  </div>
-</div>
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">
-    <h1>{{ recipe.mealType }}</h1>
-  </div>
-</div>
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">
-    <h1 *ngFor="let ingredient of recipe.ingredients">{{ ingredient.text }}</h1>
-  </div>
-</div>
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">
-    <div class="btn-group" appDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle">
-        Manage Recipe <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a style="cursor: pointer" (click)="onEditRecipe()">Edit Recipe</a>
-        </li>
-        <li><a style="cursor: pointer">Delete Recipe</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div *ngIf="recipe" class="row">
-  <div class="col-xs-12">{{ recipe.dishType }}</div>
 </div>
