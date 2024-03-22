@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -19,9 +20,9 @@ export class RecipeService {
 
   private recipes: Recipe[] = [];
   private baseUrl =
-    'https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=9bb52f29&app_key=%20c1334239f8df865c87bfa0f1d7bf3429%09&ingr=3-5&cuisineType=American&mealType=Breakfast';
-  private app_key = '%20c1334239f8df865c87bfa0f1d7bf3429%09';
-  private app_id = '9bb52f29';
+    'https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=48d66f37&app_key=4c3db6ca4d77ce08271c0f62b1f83564';
+  private app_key = '4c3db6ca4d77ce08271c0f62b1f83564';
+  private app_id = '48d66f37';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -32,8 +33,6 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
   getRecipes(searchterm: string): Observable<Recipe[]> {
-    let quisineType = 'American'; //could be sent as parameter
-    let mealType = 'Breakfast'; //could be sent as parameter
     let url =
       this.baseUrl +
       '&q=' +
@@ -41,11 +40,7 @@ export class RecipeService {
       '&app_id=' +
       this.app_id +
       '&app_key=' +
-      this.app_key +
-      '&cuisineType=' +
-      quisineType +
-      '&mealType=' +
-      mealType;
+      this.app_key;
     return this.http.get<any>(url, this.httpOptions).pipe(
       map((response) => {
         return response.hits.map((hit) => {
@@ -71,7 +66,7 @@ export class RecipeService {
       .get<any>(
         'https://api.edamam.com/api/recipes/v2/' +
           index +
-          '?type=public&app_id=9bb52f29&app_key=%20c1334239f8df865c87bfa0f1d7bf3429%09',
+          '?type=public&q=chicken&app_id=48d66f37&app_key=4c3db6ca4d77ce08271c0f62b1f83564',
         this.httpOptions
       )
       .pipe(
