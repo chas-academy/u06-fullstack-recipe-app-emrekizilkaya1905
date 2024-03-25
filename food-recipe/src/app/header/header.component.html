@@ -1,21 +1,49 @@
-<div class="navbar-header">
-  <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
-    <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+<div class="flex items-center justify-between px-4 py-3 bg-black">
+  <button
+    type="button"
+    class="block text-white hover:text-white focus:text-white focus:outline-none"
+    (click)="collapsed = !collapsed"
+  >
+    <span
+      class="block h-2 w-6 mb-1 bg-white rounded-sm"
+      *ngFor="let iconBar of [1, 2, 3]"
+    ></span>
   </button>
-  <a routerLink="/" class="navbar-brand">Chicken Recipe Book</a>
+  <a routerLink="/" class="text-white text-lg font-semibold"
+    >Chicken Recipe Book</a
+  >
 </div>
-<div
-  class="navbar-collapse"
-  [class.collapse]="collapsed"
-  (window:resize)="collapsed = true"
->
-  <ul class="nav navbar-nav">
-    <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
-  </ul>
-  <ul class="nav navbar-nav">
-    <li routerLinkActive="active"><a routerLink="/search">Recipe Search</a></li>
-  </ul>
-  <ul class="nav navbar-nav">
-    <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
-  </ul>
+
+<div class="bg-blue-500">
+  <div
+    [class.hidden]="collapsed"
+    class="px-2 pt-2 pb-4 sm:flex sm:items-center sm:justify-between"
+  >
+    <ul class="flex flex-col sm:flex-row">
+      <li class="mb-2 sm:mb-0 mr-0 sm:mr-4">
+        <a
+          routerLink="/recipes"
+          routerLinkActive="text-white"
+          class="text-white hover:text-white"
+          >Recipes</a
+        >
+      </li>
+      <li class="mb-2 sm:mb-0 mr-0 sm:mr-4">
+        <a
+          routerLink="/search"
+          routerLinkActive="text-white"
+          class="text-white hover:text-white"
+          >Recipe Search</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/login"
+          routerLinkActive="text-white"
+          class="text-white hover:text-white"
+          >Login</a
+        >
+      </li>
+    </ul>
+  </div>
 </div>

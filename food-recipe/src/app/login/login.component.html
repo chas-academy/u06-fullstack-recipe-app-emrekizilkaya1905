@@ -1,1 +1,73 @@
-<p>login works!</p>
+<section
+  class="py-36 flex items-center bg-gradient-to-r from-green-100 to-green-50 opacity-90 h-screen dark:from-slate-900 dark:to-slate-800"
+>
+  <div class="container mx-auto px-4">
+    <div
+      class="max-w-[400px] m-auto p-6 bg-white dark:bg-slate-950 shadow-md dark:shadow-gray-800 rounded-md"
+    >
+      <h5
+        id="signin-heading"
+        class="my-6 text-x1 font-semibold text-black dark:text-white"
+      >
+        Sign In
+      </h5>
+      <form id="signin-form">
+        <!-- Sign In Form -->
+        <div class="mb-4">
+          <label for="username" class="text-black dark:text-white"
+            >Username</label
+          >
+          <input
+            id="username"
+            type="text"
+            class="w-full mt-3 py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-green-600 dark:border-gray-600 dark:focus:border-green-600 focus:ring-0"
+            placeholder="Enter your username"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="text-black dark:text-white"
+            >Password</label
+          >
+          <input
+            id="password"
+            type="password"
+            class="w-full mt-3 py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-green-600 dark:border-gray-600 dark:focus:border-green-600 focus:ring-0"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="flex justify-between mb-4">
+          <div class="flex items-center mb-0">
+            <input
+              class="rounded border-gray-200 dark:border-gray-800 text-green-600 focus:border-purple-300 focus:ring focus:ring-offset-0 focus:ring-purple-200 focus:ring-opacity-50 mr-2"
+              type="checkbox"
+              value=""
+              id="RememberMe"
+            />
+            <label class="text-slate-400 text-xs" for="RememberMe"
+              >Remember me</label
+            >
+          </div>
+          <p class="text-slate-400 text-xs mb-0">
+            <a href="auth-re-password.html" class="text-slate-400"
+              >Forgot password ?</a
+            >
+          </p>
+        </div>
+        <div class="mb-4">
+          <input
+            type="submit"
+            class="py-2 px-5 inline-block tracking-wide border align-middle duration-500 text-base text-center bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md w-full"
+            value="Sign In"
+          />
+        </div>
+        <div class="text-center mt-8">
+          <a
+            href="#"
+            class="text-green-700 dark:text-white font-semibold inline-block"
+            >Logout</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
