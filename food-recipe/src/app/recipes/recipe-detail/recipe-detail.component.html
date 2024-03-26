@@ -1,22 +1,31 @@
-<div *ngIf="recipe" class="card">
+<div *ngIf="recipe" class="bg-white rounded-lg overflow-hidden shadow-lg">
   <img
     [src]="recipe.image"
-    class="card-img-top rounded-top"
+    class="w-full max-w-xs h-auto"
     alt="{{ recipe.label }}"
   />
-  <div class="card-body">
-    <h5 class="card-title">{{ recipe.label }}</h5>
-    <p class="card-text"><strong>Ingredients:</strong></p>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">{{ recipe.label }}</div>
+    <p class="text-gray-700 text-base"><strong>Ingredients:</strong></p>
+    <ul class="list-disc list-inside mb-4">
+      <li
+        *ngFor="let ingredient of recipe.ingredients"
+        class="text-gray-700 text-base"
+      >
         {{ ingredient.text }}
       </li>
     </ul>
-    <p class="card-text"><strong>Meal Type:</strong> {{ recipe.mealType }}</p>
-    <p class="card-text"><strong>Dish Type:</strong> {{ recipe.dishType }}</p>
-    <p class="card-text">
+    <p class="text-gray-700 text-base">
+      <strong>Meal Type:</strong> {{ recipe.mealType }}
+    </p>
+    <p class="text-gray-700 text-base">
+      <strong>Dish Type:</strong> {{ recipe.dishType }}
+    </p>
+    <p class="text-gray-700 text-base">
       <strong>Diet Labels:</strong> {{ recipe.dietLabels }}
     </p>
-    <p class="card-text"><strong>Cautions:</strong> {{ recipe.cautions }}</p>
+    <p class="text-gray-700 text-base">
+      <strong>Cautions:</strong> {{ recipe.cautions }}
+    </p>
   </div>
 </div>

@@ -1,19 +1,15 @@
 <a
-  style="cursor: pointer"
+  class="cursor-pointer list-group-item flex items-center justify-between border-b border-gray-200 py-4"
   [routerLink]="[recipe.id]"
   routerLinkActive="active"
-  class="list-group-item clearfix"
 >
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.label }}</h4>
-    <p class="list-group-item-text">{{ recipe.dishType }}</p>
+  <div>
+    <h4 class="font-bold">{{ recipe.label }}</h4>
+    <p>{{ recipe.dishType }}</p>
   </div>
-  <span class="pull-right">
-    <img
-      [src]="recipe.image"
-      alt="{{ recipe.label }}"
-      class="img-responsive"
-      style="max-height: 50px"
-    />
-  </span>
+  <img
+    [src]="recipe.image"
+    alt="{{ recipe.label }}"
+    class="block max-h-12"
+  />
 </a>
