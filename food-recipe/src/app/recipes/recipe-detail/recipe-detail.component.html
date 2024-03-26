@@ -5,8 +5,8 @@
     alt="{{ recipe.label }}"
   />
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">{{ recipe.label }}</div>
-    <p class="text-gray-700 text-base"><strong>Ingredients:</strong></p>
+    <div class="font-bold text-2xl mb-4">{{ recipe.label }}</div>
+    <p class="text-gray-700 text-lg"><strong>Ingredients:</strong></p>
     <ul class="list-disc list-inside mb-4">
       <li
         *ngFor="let ingredient of recipe.ingredients"
@@ -15,16 +15,16 @@
         {{ ingredient.text }}
       </li>
     </ul>
-    <p class="text-gray-700 text-base">
+    <p class="text-gray-700 text-lg">
       <strong>Meal Type:</strong> {{ recipe.mealType }}
     </p>
-    <p class="text-gray-700 text-base">
+    <p class="text-gray-700 text-lg">
       <strong>Dish Type:</strong> {{ recipe.dishType }}
     </p>
-    <p class="text-gray-700 text-base">
+    <p class="text-gray-700 text-lg">
       <strong>Diet Labels:</strong> {{ recipe.dietLabels }}
     </p>
-    <p class="text-gray-700 text-base">
+    <p class="text-gray-700 text-lg">
       <strong>Cautions:</strong> {{ recipe.cautions }}
     </p>
   </div>
