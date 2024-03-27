@@ -1,49 +1,45 @@
-<div class="flex items-center justify-between px-4 py-3 bg-black">
+<div class="flex items-center justify-between px-4 py-3 bg-gray-800">
   <button
     type="button"
-    class="block text-white hover:text-white focus:text-white focus:outline-none"
+    class="text-gray-400 focus:outline-none focus:text-gray-500"
     (click)="collapsed = !collapsed"
   >
-    <span
-      class="block h-2 w-6 mb-1 bg-white rounded-sm"
-      *ngFor="let iconBar of [1, 2, 3]"
-    ></span>
+    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path
+        [class.hidden]="collapsed"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16m-7 6h7"
+      ></path>
+      <path
+        [class.hidden]="!collapsed"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
   </button>
-  <a routerLink="/" class="text-white text-lg font-semibold"
-    >Chicken Recipe Book</a
-  >
+  <a routerLink="/" class="text-white font-semibold">Recipe Book</a>
 </div>
 
-<div class="bg-black">
-  <div
-    [class.hidden]="collapsed"
-    class="px-2 pt-2 pb-4 sm:flex sm:items-center sm:justify-between"
+<div [class.hidden]="collapsed" class="bg-gray-800">
+  <ul
+    class="flex flex-col sm:flex-row sm:space-x-4 sm:items-center sm:justify-center px-2 py-4"
   >
-    <ul class="flex flex-col sm:flex-row">
-      <li class="mb-2 sm:mb-0 mr-0 sm:mr-4">
-        <a
-          routerLink="/recipes"
-          routerLinkActive="text-white"
-          class="text-white hover:text-white"
-          >Recipes</a
-        >
-      </li>
-      <li class="mb-2 sm:mb-0 mr-0 sm:mr-4">
-        <a
-          routerLink="/search"
-          routerLinkActive="text-white"
-          class="text-white hover:text-white"
-          >Recipe Search</a
-        >
-      </li>
-      <li>
-        <a
-          routerLink="/login"
-          routerLinkActive="text-white"
-          class="text-white hover:text-white"
-          >Login</a
-        >
-      </li>
-    </ul>
-  </div>
+    <li routerLinkActive="active" class="text-white">
+      <a routerLink="" class="block px-2 py-1 hover:text-gray-300">Recipes</a>
+    </li>
+    <!-- <li routerLinkActive="active" class="text-white">
+      <a routerLink="/search" class="block px-2 py-1 hover:text-gray-300"
+        >Recipe Search</a
+      >
+    </li> -->
+    <li routerLinkActive="active" class="text-white">
+      <a routerLink="/login" class="block px-2 py-1 hover:text-gray-300"
+        >Login</a
+      >
+    </li>
+  </ul>
 </div>

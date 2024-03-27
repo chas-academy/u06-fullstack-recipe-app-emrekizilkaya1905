@@ -1,28 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from './recipe.model';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 
-@Injectable()
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class RecipeService {
-  private recipe: Recipe = {
-    id: '',
-    label: '',
-    dishType: [],
-    ingredients: [],
-    image: { url: '', width: 0, height: 0 },
-    mealType: [],
-    dietLabels: [],
-    cautions: [],
-  };
-
-  private recipes: Recipe[] = [];
-  private baseUrl =
-    'https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=48d66f37&app_key=4c3db6ca4d77ce08271c0f62b1f83564';
-  private app_key = '4c3db6ca4d77ce08271c0f62b1f83564';
-  private app_id = '48d66f37';
+  baseUrl = 'https://api.edamam.com/api/recipes/v2';
+  type = 'public';
+  app_key = '4c3db6ca4d77ce08271c0f62b1f83564';
+  app_id = '48d66f37';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -32,59 +26,78 @@ export class RecipeService {
   };
 
   constructor(private http: HttpClient) {}
-  getRecipes(searchterm: string): Observable<Recipe[]> {
-    let url =
+  getRecipes(
+    q?: string,
+    mealType?: string,
+    dishType?: string,
+    diet?: string,
+    cuisineType?: string
+  ) {
+    let searchquery =
       this.baseUrl +
-      '&q=' +
-      searchterm +
+      '?type=' +
+      this.type +
       '&app_id=' +
       this.app_id +
       '&app_key=' +
       this.app_key;
-    return this.http.get<any>(url, this.httpOptions).pipe(
-      map((response) => {
-        return response.hits.map((hit) => {
-          const recipeData = hit.recipe;
-          console.log(recipeData);
-          return new Recipe(
-            recipeData.uri.split('_')[1],
-            recipeData.label,
-            recipeData.dishType,
-            recipeData.ingredients,
-            recipeData.image,
-            recipeData.mealType,
-            recipeData.dietLabels,
-            recipeData.cautions
-          );
-        });
-      })
-    );
+
+    if (q) {
+      searchquery += '&q=' + encodeURIComponent(q);
+    }
+
+    if (dishType) {
+      searchquery += '&dishType=' + encodeURIComponent(dishType);
+    }
+
+    if (mealType) {
+      searchquery += '&mealType=' + mealType;
+    }
+    if (diet) {
+      searchquery += '&diet=' + diet;
+    }
+    if (cuisineType) {
+      searchquery += '&cuisineType=' + encodeURIComponent(cuisineType);
+    }
+    console.log(searchquery);
+    return this.http
+      .get<any>(searchquery, this.httpOptions)
+      .pipe(catchError(this.handleError));
+    // console.log(searchquery);
   }
 
-  getRecipe(index: string): Observable<Recipe> {
-    console.log(index);
+  idGetRecipes(id: string) {
+    const recipeId =
+      this.baseUrl +
+      '/' +
+      id +
+      '?type=' +
+      this.type +
+      '&app_id=' +
+      this.app_id +
+      '&app_key=' +
+      this.app_key;
+    console.log('Recipe ID:', recipeId);
+    console.log();
     return this.http
-      .get<any>(
-        'https://api.edamam.com/api/recipes/v2/' +
-          index +
-          '?type=public&q=chicken&app_id=48d66f37&app_key=4c3db6ca4d77ce08271c0f62b1f83564',
-        this.httpOptions
-      )
-      .pipe(
-        map((data: any) => {
-          console.log(data);
-          const recipeData = data.recipe;
-          return new Recipe(
-            recipeData.uri.split('_')[1],
-            recipeData.label,
-            recipeData.dishType,
-            recipeData.ingredients,
-            recipeData.image,
-            recipeData.mealType,
-            recipeData.dietLabels,
-            recipeData.cautions
-          );
-        })
+      .get<any>(recipeId, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
       );
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 }

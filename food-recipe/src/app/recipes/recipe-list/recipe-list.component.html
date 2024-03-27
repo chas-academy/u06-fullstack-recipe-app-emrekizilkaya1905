@@ -1,11 +1,115 @@
-<div class="flex justify-center mb-4">
-  <button class="btn btn-success mr-2" (click)="onNewRecipe()">
-    New Recipe
-  </button>
+<div class="m-2 bg-black">
+  <select
+    class="p-2 rounded-lg m-1 bg-red-200 text-gray-800"
+    name="mealType"
+    id="mealType"
+    [(ngModel)]="mealType"
+  >
+    <option value="">Meal type</option>
+    <option value="breakfast">Breakfast</option>
+    <option value="lunch">Lunch</option>
+    <option value="dinner">Dinner</option>
+    <option value="snack">Snack</option>
+    <option value="teatime">Teatime</option>
+  </select>
+
+  <select
+    class="p-2 rounded-lg m-1 bg-gray-200 text-gray-800"
+    name="dishType"
+    id="dishType"
+    [(ngModel)]="dishType"
+  >
+    <option value="">Dish Type Options</option>
+    <option value="biscuits and cookies">Biscuits and Cookies</option>
+    <option value="bread">Bread</option>
+    <option value="cereals">Cereals</option>
+    <option value="condiments and sauces">Condiments and Sauces</option>
+    <option value="desserts">Desserts</option>
+    <option value="drinks">Drinks</option>
+    <option value="main course">Main Course</option>
+    <option value="pancake">Pancake</option>
+    <option value="preps">Preps</option>
+    <option value="preserve">Preserve</option>
+    <option value="salad">Salad</option>
+    <option value="sandwiches">Sandwiches</option>
+    <option value="side dish">Side Dish</option>
+    <option value="soup">Soup</option>
+    <option value="starter">Starter</option>
+    <option value="sweets">Sweets</option>
+  </select>
 </div>
-<hr class="my-4" />
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <ng-container *ngFor="let recipeEl of recipes; let i = index">
-    <app-recipe-item [recipe]="recipeEl" [index]="i"></app-recipe-item>
+
+<select class="p-2 rounded-lg m-1" name="diet" id="diet" [(ngModel)]="diet">
+  <option value="">Diet Options</option>
+  <option [value]="'balanced'">Balanced</option>
+  <option [value]="'high-fiber'">High-Fiber</option>
+  <option [value]="'high-protein'">High-Protein</option>
+  <option [value]="'low-carb'">Low-Carb</option>
+  <option [value]="'low-fat'">Low-Fat</option>
+  <option [value]="'low-sodium'">Low-Sodium</option>
+</select>
+
+<select
+  class="p-2 rounded-lg m-1"
+  name="cuisineType"
+  id="cuisineType"
+  [(ngModel)]="cuisineType"
+>
+  <option value="">Cuisine Options</option>
+  <option value="american">American</option>
+  <option value="asian">Asian</option>
+  <option value="british">British</option>
+  <option value="caribbean">Caribbean</option>
+  <option value="central europe">Central Europe</option>
+  <option value="chinese">Chinese</option>
+  <option value="eastern Europe">Eastern Europe</option>
+  <option value="french">French</option>
+  <option value="indian">Indian</option>
+  <option value="italian">Italian</option>
+  <option value="japanese">Japanese</option>
+  <option value="kosher">Kosher</option>
+  <option value="mediterranean">Mediterranean</option>
+  <option value="mexican">Mexican</option>
+  <option value="middle Eastern">Middle Eastern</option>
+  <option value="nordic">Nordic</option>
+  <option value="south American">South American</option>
+  <option value="south East Asian">South East Asian</option>
+</select>
+
+<input
+  class="p-2 rounded-lg m-1 bg-gray-200 text-gray-800"
+  type="text"
+  placeholder="Search"
+  [(ngModel)]="searchquery"
+/>
+
+<button
+  class="p-2 rounded-lg m-1 bg-black text-white hover:bg-purple-800"
+  type="button"
+  (click)="getRecipex()"
+>
+  Search
+</button>
+
+<div class="flex flex-col justify-start">
+  <ng-container *ngFor="let recipe of allRecipes; let i = index">
+    <a
+      class="flex items-start justify-start w-auto max-w-full h-60 m-2 bg-gray-200 rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:scale-105"
+      [routerLink]="['/recipe/', splitRecipeIdFromUri(recipe.uri)]"
+      routerLinkActive="active"
+    >
+      <img
+        class="rounded-l-lg h-full"
+        [src]="recipe.image"
+        [alt]="recipe.label"
+      />
+      <div class="flex flex-col justify-start items-start p-2">
+        <h2
+          class="bg-white text-gray-800 rounded-b-lg p-2 shadow-lg hover:bg-purple-900 hover:text-white text-center"
+        >
+          {{ recipe.label }}
+        </h2>
+      </div>
+    </a>
   </ng-container>
 </div>
