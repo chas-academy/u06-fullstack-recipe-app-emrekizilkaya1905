@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  randomRecipes = 'adana';
+  randomRecipes = 'baklava';
 
   searchquery = '';
 

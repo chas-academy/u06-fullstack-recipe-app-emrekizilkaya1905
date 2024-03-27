@@ -17,16 +17,18 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) {
     this.loginDetails = {
-      email: 'ece@ece.se',
-      password: 'eceece',
+      email: '',
+      password: '',
     };
+
+    console.log(this.loginDetails);
 
     this.loggedIn$ = this.auth.loggedIn$;
   }
 
   login() {
     this.auth.loginUser(this.loginDetails);
-    console.log('Emre');
+    // console.log('Emre');
   }
   logout() {
     this.auth.logOut();

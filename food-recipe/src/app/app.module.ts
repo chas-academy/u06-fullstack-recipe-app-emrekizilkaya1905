@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginComponent } from './login/login.component';
     RecipeDetailComponent,
     DropdownDirective,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

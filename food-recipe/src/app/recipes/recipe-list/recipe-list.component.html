@@ -94,7 +94,7 @@
 <div class="flex flex-col justify-start">
   <ng-container *ngFor="let recipe of allRecipes; let i = index">
     <a
-      class="flex items-start justify-start w-auto max-w-full h-60 m-2 bg-gray-200 rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:scale-105"
+      class="flex items-start justify-start w-auto max-w-full h-60 m-2 bg-blue-950 rounded-lg overflow-hidden shadow-lg transition duration-300 transform hover:scale-105"
       [routerLink]="['/recipe/', splitRecipeIdFromUri(recipe.uri)]"
       routerLinkActive="active"
     >
@@ -105,10 +105,24 @@
       />
       <div class="flex flex-col justify-start items-start p-2">
         <h2
-          class="bg-white text-gray-800 rounded-b-lg p-2 shadow-lg hover:bg-purple-900 hover:text-white text-center"
+          class="bg-white text-gray-800 ml-196 rounded-b-lg p-2 shadow-lg hover:bg-blue-500 hover:text-white text-center ml-auto"
+          style="font-size: 1.5rem; margin-right: 2rem"
         >
           {{ recipe.label }}
         </h2>
+      </div>
+      <div class="flex items-center">
+        <img
+          src="https://static.wixstatic.com/media/33c121_3f7142843ea242acb6a70998d7ce61af.png/v1/fit/w_2500,h_1330,al_c/33c121_3f7142843ea242acb6a70998d7ce61af.png"
+          alt="Emre Logo"
+          class="mr-4 mt-8"
+          style="max-width: 200px"
+        />
+        <h1
+          class="text-white text-right ml-14 mt-4 font-bold underline text-4xl"
+        >
+          YOUR HEALTH AND TASTE PREFERENCES COME FIRST!
+        </h1>
       </div>
     </a>
   </ng-container>

@@ -8,12 +8,14 @@ import { LoginDetails } from './login-details';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from './user';
+import { Router } from '@angular/router';
+import { RegisterDetails } from './register-details';
 
 interface ResultData {
   token: string;
 }
 
-interface RegisterDetails {}
+// interface RegisterDetails {}
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +32,7 @@ export class AuthService {
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   getLoginStatus() {
     return this.loggedIn.value;
@@ -50,6 +52,28 @@ export class AuthService {
           'Authorization',
           'Bearer ' + result.token
         );
+        console.log('You logged in!');
+        this.route.navigateByUrl('');
+      });
+  }
+
+  registerUser(RegisterDetails: RegisterDetails) {
+    this.http
+      .post<ResultData>(
+        this.baseUrl + 'register',
+        RegisterDetails,
+        this.httpOptions
+      )
+      .pipe(catchError(this.handleError))
+      .subscribe((result) => {
+        console.log(result);
+        this.updateLoginState(true);
+        this.httpOptions.headers = this.httpOptions.headers.set(
+          'Authorization',
+          'Bearer ' + result.token
+        );
+        console.log('You registered!');
+        this.route.navigateByUrl('');
       });
   }
 

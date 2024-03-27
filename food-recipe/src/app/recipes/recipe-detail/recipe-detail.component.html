@@ -1,34 +1,50 @@
-<div class="bg-white w-fit mx-auto px-10 py-5 m-2 rounded-lg shadow-lg">
-  <h2 class="text-center text-2xl text-black italic" *ngIf="recipe">
-    {{ recipe.label }}
-  </h2>
-  <img
-    class="rounded-lg flex mx-auto m-8"
-    *ngIf="recipe"
-    [src]="recipe.image"
-    [alt]="recipe.label"
-  />
-  <ul *ngIf="recipe" class="text-red-400">
-    <li
-      class="list-decimal text-left"
-      *ngFor="let ingredientLines of recipe.ingredientLines"
-    >
-      {{ ingredientLines }}
-    </li>
-  </ul>
-</div>
-
-<div
-  class="flex justify-center m-2 p-1 mx-auto w-fit bg-black rounded-lg shadow-lg"
->
-  <ul class="flex flex-col flex-wrap" *ngIf="recipe">
-    <li
-      class="flex items-center m-2"
-      *ngFor="let ingredient of recipe.ingredients"
-    >
-      <p class="mx-4 text-yellow-800">
-        {{ ingredient.text }}
-      </p>
-    </li>
-  </ul>
+<div class="container mx-auto px-4 flex justify-start">
+  <div>
+    <img
+      src="https://static.wixstatic.com/media/33c121_3f7142843ea242acb6a70998d7ce61af.png/v1/fit/w_2500,h_1330,al_c/33c121_3f7142843ea242acb6a70998d7ce61af.png"
+      alt="Emre Logo"
+      class="mr-4 mt-8"
+      style="max-width: 200px"
+    />
+    <h1 class="text-white text-right ml-14 mt-4 font-bold underline text-4xl">
+      YOUR HEALTH AND TASTE PREFERENCES COME FIRST!
+    </h1>
+    <div class="bg-white w-fit mx-auto px-10 py-5 m-2 rounded-lg shadow-lg">
+      <h2
+        class="text-center text-4xl text-black italic font-bold underline"
+        *ngIf="recipe"
+      >
+        {{ recipe.label }}
+      </h2>
+      <img
+        class="rounded-lg flex mx-auto m-8"
+        *ngIf="recipe"
+        [src]="recipe.image"
+        [alt]="recipe.label"
+      />
+      <ul *ngIf="recipe" class="text-black">
+        <li
+          class="list-decimal text-left font-bold"
+          *ngFor="let ingredientLines of recipe.ingredientLines"
+        >
+          {{ ingredientLines }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div
+    class="flex justify-center m-2 p-1 mx-auto w-fit bg-black rounded-lg shadow-lg"
+  >
+    <ul class="flex flex-col flex-wrap" *ngIf="recipe">
+      <li
+        class="flex items-center m-2"
+        *ngFor="let ingredient of recipe.ingredients"
+      >
+        <p class="mx-4 text-white font-bold">
+          {{ ingredient.text }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div> -->
 </div>
