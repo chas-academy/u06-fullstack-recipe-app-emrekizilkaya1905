@@ -79,6 +79,7 @@ export class AuthService {
   }
 
   logOut() {
+    localStorage.removeItem('logintoken');
     this.http
       .post<ResultData>(this.baseUrl + 'logout', {}, this.httpOptions)
       .pipe(catchError(this.handleError))
