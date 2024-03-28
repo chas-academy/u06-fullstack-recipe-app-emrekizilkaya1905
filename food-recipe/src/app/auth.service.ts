@@ -52,6 +52,7 @@ export class AuthService {
           'Authorization',
           'Bearer ' + result.token
         );
+        localStorage.setItem('logintoken', result.token);
         alert('Log in Success!');
         // this.route.navigateByUrl('');
       });
