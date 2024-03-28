@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import {
   HttpClient,
@@ -32,7 +33,7 @@ export class RecipeService {
     dishType?: string,
     diet?: string,
     cuisineType?: string
-  ) {
+  ): Observable<any> {
     let searchquery =
       this.baseUrl +
       '?type=' +
@@ -59,7 +60,7 @@ export class RecipeService {
     if (cuisineType) {
       searchquery += '&cuisineType=' + encodeURIComponent(cuisineType);
     }
-    console.log(searchquery);
+    // console.log(searchquery);
     return this.http
       .get<any>(searchquery, this.httpOptions)
       .pipe(catchError(this.handleError));

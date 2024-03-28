@@ -54,7 +54,7 @@ export class AuthService {
         );
         localStorage.setItem('logintoken', result.token);
         alert('Log in Success!');
-        // this.route.navigateByUrl('');
+        this.route.navigateByUrl('');
       });
   }
 
