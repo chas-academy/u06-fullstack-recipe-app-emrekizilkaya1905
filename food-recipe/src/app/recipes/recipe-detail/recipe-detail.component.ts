@@ -34,17 +34,15 @@ export class RecipeDetailComponent implements OnInit {
     console.log('Recipe ID:', this.recipeIdX);
 
     this.recipeService.idGetRecipes(this.recipeIdX).subscribe((result: any) => {
-      console.log('Result from API:', result); // API'den gelen veriyi konsola yazdır
+      console.log('Result from API:', result);
       this.allRecipes = result;
-      console.log(this.allRecipes);
-      console.log(typeof this.allRecipes);
       if (
         !Array.isArray(this.allRecipes) &&
         typeof this.allRecipes === 'object' &&
         this.allRecipes !== null
       ) {
         this.recipe = this.allRecipes.recipe;
-        console.log('Selected Recipe:', this.recipe); // Seçilen yemeği konsola yazdır
+        console.log('Selected Recipe:', this.recipe);
       } else {
         console.error('No recipes found in the response');
       }

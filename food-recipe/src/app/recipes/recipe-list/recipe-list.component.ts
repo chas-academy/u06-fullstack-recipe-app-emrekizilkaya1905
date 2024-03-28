@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { RecipeService } from '../recipe.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  randomRecipes = 'baklava';
+  randomRecipes = 'kebab';
 
   searchquery = '';
 

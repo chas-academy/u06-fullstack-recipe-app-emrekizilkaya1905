@@ -14,10 +14,10 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class RecipeService {
-  baseUrl = 'https://api.edamam.com/api/recipes/v2';
-  type = 'public';
-  app_key = '4c3db6ca4d77ce08271c0f62b1f83564';
-  app_id = '48d66f37';
+  private baseUrl = 'https://api.edamam.com/api/recipes/v2';
+  private type = 'public';
+  private app_key = '4c3db6ca4d77ce08271c0f62b1f83564';
+  private app_id = '48d66f37';
 
   private httpOptions = {
     headers: new HttpHeaders({

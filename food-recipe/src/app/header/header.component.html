@@ -26,17 +26,12 @@
 
 <div [class.hidden]="collapsed" class="bg-gray-800">
   <ul
-    class="flex flex-col sm:flex-row sm:space-x-4 sm:items-center sm:justify-center px-2 py-4"
+    class="flex flex-initial sm:flex-row sm:space-x-4 sm:items-start sm:justify-center px-2 py-4"
   >
     <li routerLinkActive="active" class="text-white">
       <a routerLink="" class="block px-2 py-1 hover:text-gray-300">Recipes</a>
     </li>
-    <!-- <li routerLinkActive="active" class="text-white">
-      <a routerLink="/search" class="block px-2 py-1 hover:text-gray-300"
-        >Recipe Search</a
-      >
-    </li> -->
-    <div *ngIf="!loggedIn">
+    <ng-container *ngIf="!loggedIn; else loggedInMenu">
       <li routerLinkActive="active" class="text-white">
         <a routerLink="/login" class="block px-2 py-1 hover:text-gray-300"
           >Login</a
@@ -47,13 +42,13 @@
           >Register</a
         >
       </li>
-    </div>
-    <div *ngIf="loggedIn">
+    </ng-container>
+    <ng-template #loggedInMenu>
       <li routerLinkActive="active" class="text-white">
         <a class="block px-2 py-1 hover:text-gray-300" (click)="logoutHeader()"
           >Logout</a
         >
       </li>
-    </div>
+    </ng-template>
   </ul>
 </div>

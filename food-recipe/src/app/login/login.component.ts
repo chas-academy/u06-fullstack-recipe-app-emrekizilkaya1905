@@ -28,7 +28,6 @@ export class LoginComponent {
 
   login() {
     this.auth.loginUser(this.loginDetails);
-    // console.log('Emre');
   }
   logout() {
     this.auth.logOut();

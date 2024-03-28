@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 import { LoginDetails } from '../interfaces/login-details';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { User } from '../interfaces/user';
 import { Router } from '@angular/router';
 import { RegisterDetails } from '../interfaces/register-details';
 
@@ -93,10 +92,6 @@ export class AuthService {
         alert('You logged out!');
       });
   }
-
-  // getUser2(): Observable<User[]> {
-  //   return this.http.get<User[]>(this.baseUrl + 'getuser/12', this.httpOptions);
-  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {

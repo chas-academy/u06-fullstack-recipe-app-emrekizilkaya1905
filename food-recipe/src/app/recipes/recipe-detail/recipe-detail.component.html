@@ -9,9 +9,9 @@
     <h1 class="text-white text-right ml-14 mt-4 font-bold underline text-4xl">
       YOUR HEALTH AND TASTE PREFERENCES COME FIRST!
     </h1>
-    <div class="bg-white w-fit mx-auto px-10 py-5 m-2 rounded-lg shadow-lg">
+    <div class="bg-black w-fit mx-auto px-10 py-5 m-2 rounded-lg shadow-lg">
       <h2
-        class="text-center text-4xl text-black italic font-bold underline"
+        class="text-center text-4xl text-white italic font-bold underline"
         *ngIf="recipe"
       >
         {{ recipe.label }}
@@ -22,7 +22,7 @@
         [src]="recipe.image"
         [alt]="recipe.label"
       />
-      <ul *ngIf="recipe" class="text-black">
+      <ul *ngIf="recipe" class="text-white">
         <li
           class="list-decimal text-left font-bold"
           *ngFor="let ingredientLines of recipe.ingredientLines"
@@ -32,19 +32,4 @@
       </ul>
     </div>
   </div>
-  <!-- <div
-    class="flex justify-center m-2 p-1 mx-auto w-fit bg-black rounded-lg shadow-lg"
-  >
-    <ul class="flex flex-col flex-wrap" *ngIf="recipe">
-      <li
-        class="flex items-center m-2"
-        *ngFor="let ingredient of recipe.ingredients"
-      >
-        <p class="mx-4 text-white font-bold">
-          {{ ingredient.text }}
-        </p>
-      </li>
-    </ul>
-  </div>
-</div> -->
 </div>
