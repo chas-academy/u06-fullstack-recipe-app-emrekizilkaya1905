@@ -36,15 +36,24 @@
         >Recipe Search</a
       >
     </li> -->
-    <li routerLinkActive="active" class="text-white">
-      <a routerLink="/login" class="block px-2 py-1 hover:text-gray-300"
-        >Login</a
-      >
-    </li>
-    <li routerLinkActive="active" class="text-white">
-      <a routerLink="/register" class="block px-2 py-1 hover:text-gray-300"
-        >Register</a
-      >
-    </li>
+    <div *ngIf="!loggedIn">
+      <li routerLinkActive="active" class="text-white">
+        <a routerLink="/login" class="block px-2 py-1 hover:text-gray-300"
+          >Login</a
+        >
+      </li>
+      <li routerLinkActive="active" class="text-white">
+        <a routerLink="/register" class="block px-2 py-1 hover:text-gray-300"
+          >Register</a
+        >
+      </li>
+    </div>
+    <div *ngIf="loggedIn">
+      <li routerLinkActive="active" class="text-white">
+        <a class="block px-2 py-1 hover:text-gray-300" (click)="logoutHeader()"
+          >Logout</a
+        >
+      </li>
+    </div>
   </ul>
 </div>

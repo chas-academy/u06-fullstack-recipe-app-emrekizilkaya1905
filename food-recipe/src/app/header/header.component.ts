@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   collapsed = true;
+  protected loggedIn: boolean;
+
+  constructor(private AuthService: AuthService) {
+    this.AuthService.loggedIn$.subscribe((res) => {
+      this.loggedIn = res;
+    });
+  }
+
+  logoutHeader() {
+    this.AuthService.logOut();
+  }
 }
