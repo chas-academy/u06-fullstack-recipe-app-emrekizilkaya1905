@@ -77,8 +77,8 @@ export class RecipeService {
       this.app_id +
       '&app_key=' +
       this.app_key;
-    console.log('Recipe ID:', recipeId);
-    console.log();
+    // console.log('Recipe ID:', recipeId);
+    // console.log();
     return this.http
       .get<any>(recipeId, this.httpOptions)
       .pipe(catchError(this.handleError));

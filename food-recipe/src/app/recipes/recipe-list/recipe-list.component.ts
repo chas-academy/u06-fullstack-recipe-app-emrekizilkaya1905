@@ -82,14 +82,14 @@ export class RecipeListComponent {
     this.recipeService
       .getRecipes(this.randomRecipes, '', '', '', '')
       .subscribe((result: any) => {
-        console.log('Result from API:', result); // API'den gelen veriyi konsola yazdır
+        // console.log('Result from API:', result); // API'den gelen veriyi konsola yazdır
         let recipes = result.hits.map((data: any) => {
           let recipe = data.recipe;
           recipe.selfref = data._links.self.href;
           return recipe;
         });
         this.allRecipes = recipes;
-        console.log('Emre', this.allRecipes);
+        // console.log('Emre', this.allRecipes);
       });
   }
   getRecipex() {
@@ -102,7 +102,7 @@ export class RecipeListComponent {
         this.cuisineType
       )
       .subscribe((result: any) => {
-        console.log('Result from APIx:', result); // API'den dönen veriyi konsola yazdır
+        // console.log('Result from APIx:', result); // API'den dönen veriyi konsola yazdır
         let recipes = result.hits.map((data: any) => {
           let recipe = data.recipe;
           recipe.selfref = data._links.self.href;
