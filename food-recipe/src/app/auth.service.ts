@@ -52,7 +52,7 @@ export class AuthService {
           'Authorization',
           'Bearer ' + result.token
         );
-        console.log('You logged in!');
+        alert('Log in Success!');
         // this.route.navigateByUrl('');
       });
   }
@@ -72,7 +72,7 @@ export class AuthService {
           'Authorization',
           'Bearer ' + result.token
         );
-        console.log('You registered!');
+        alert('You registered!');
         this.route.navigateByUrl('');
       });
   }
@@ -88,7 +88,7 @@ export class AuthService {
           'Authorization',
           'Bearer '
         );
-        console.log('You logged out!');
+        alert('You logged out!');
       });
   }
 
