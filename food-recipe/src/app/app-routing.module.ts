@@ -4,7 +4,6 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 
-import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 

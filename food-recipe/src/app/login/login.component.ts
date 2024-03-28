@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { LoginDetails } from '../login-details';
-import { User } from '../user';
+import { AuthService } from '../services/auth.service';
+import { LoginDetails } from '../interfaces/login-details';
+import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 

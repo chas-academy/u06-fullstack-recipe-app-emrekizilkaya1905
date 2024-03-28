@@ -10,12 +10,12 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 
-import { DropdownDirective } from './shared/dropdown.directive';
+import { DropdownDirective } from './directive/dropdown.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { RecipeService } from './recipes/recipe.service';
-import { SearchComponent } from './search/search.component';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 

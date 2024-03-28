@@ -4,12 +4,12 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginDetails } from './login-details';
+import { LoginDetails } from '../interfaces/login-details';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { User } from './user';
+import { User } from '../interfaces/user';
 import { Router } from '@angular/router';
-import { RegisterDetails } from './register-details';
+import { RegisterDetails } from '../interfaces/register-details';
 
 interface ResultData {
   token: string;
