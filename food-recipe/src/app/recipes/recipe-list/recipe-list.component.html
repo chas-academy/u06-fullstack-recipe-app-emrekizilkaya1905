@@ -1,6 +1,6 @@
 <div class="m-2 bg-black">
   <select
-    class="p-2 rounded-lg m-1 bg-red-200 text-gray-800"
+    class="p-2 rounded-lg m-1 text-gray-800"
     name="mealType"
     id="mealType"
     [(ngModel)]="mealType"
@@ -37,59 +37,59 @@
     <option value="starter">Starter</option>
     <option value="sweets">Sweets</option>
   </select>
+  <select class="p-2 rounded-lg m-1" name="diet" id="diet" [(ngModel)]="diet">
+    <option value="">Diet Options</option>
+    <option [value]="'balanced'">Balanced</option>
+    <option [value]="'high-fiber'">High-Fiber</option>
+    <option [value]="'high-protein'">High-Protein</option>
+    <option [value]="'low-carb'">Low-Carb</option>
+    <option [value]="'low-fat'">Low-Fat</option>
+    <option [value]="'low-sodium'">Low-Sodium</option>
+  </select>
+  <select
+    class="p-2 rounded-lg m-1"
+    name="cuisineType"
+    id="cuisineType"
+    [(ngModel)]="cuisineType"
+  >
+    <option value="">Cuisine Options</option>
+    <option value="american">American</option>
+    <option value="asian">Asian</option>
+    <option value="british">British</option>
+    <option value="caribbean">Caribbean</option>
+    <option value="central europe">Central Europe</option>
+    <option value="chinese">Chinese</option>
+    <option value="eastern Europe">Eastern Europe</option>
+    <option value="french">French</option>
+    <option value="indian">Indian</option>
+    <option value="italian">Italian</option>
+    <option value="japanese">Japanese</option>
+    <option value="kosher">Kosher</option>
+    <option value="mediterranean">Mediterranean</option>
+    <option value="mexican">Mexican</option>
+    <option value="middle Eastern">Middle Eastern</option>
+    <option value="nordic">Nordic</option>
+    <option value="south American">South American</option>
+    <option value="south East Asian">South East Asian</option>
+  </select>
 </div>
 
-<select class="p-2 rounded-lg m-1" name="diet" id="diet" [(ngModel)]="diet">
-  <option value="">Diet Options</option>
-  <option [value]="'balanced'">Balanced</option>
-  <option [value]="'high-fiber'">High-Fiber</option>
-  <option [value]="'high-protein'">High-Protein</option>
-  <option [value]="'low-carb'">Low-Carb</option>
-  <option [value]="'low-fat'">Low-Fat</option>
-  <option [value]="'low-sodium'">Low-Sodium</option>
-</select>
-
-<select
-  class="p-2 rounded-lg m-1"
-  name="cuisineType"
-  id="cuisineType"
-  [(ngModel)]="cuisineType"
->
-  <option value="">Cuisine Options</option>
-  <option value="american">American</option>
-  <option value="asian">Asian</option>
-  <option value="british">British</option>
-  <option value="caribbean">Caribbean</option>
-  <option value="central europe">Central Europe</option>
-  <option value="chinese">Chinese</option>
-  <option value="eastern Europe">Eastern Europe</option>
-  <option value="french">French</option>
-  <option value="indian">Indian</option>
-  <option value="italian">Italian</option>
-  <option value="japanese">Japanese</option>
-  <option value="kosher">Kosher</option>
-  <option value="mediterranean">Mediterranean</option>
-  <option value="mexican">Mexican</option>
-  <option value="middle Eastern">Middle Eastern</option>
-  <option value="nordic">Nordic</option>
-  <option value="south American">South American</option>
-  <option value="south East Asian">South East Asian</option>
-</select>
-
-<input
-  class="p-2 rounded-lg m-1 bg-gray-200 text-gray-800"
-  type="text"
-  placeholder="Search"
-  [(ngModel)]="searchquery"
-/>
-
-<button
-  class="p-2 rounded-lg m-1 bg-black text-white hover:bg-purple-800"
-  type="button"
-  (click)="getRecipex()"
->
-  Search
-</button>
+<div style="text-align: center">
+  <input
+    class="p-2 rounded-lg m-1 bg-gray-200 text-gray-800"
+    type="text"
+    placeholder="Search"
+    [(ngModel)]="searchquery"
+    style="width: 300px; font-size: 16px"
+  />
+  <button
+    class="p-2 rounded-lg m-1 bg-black text-white hover:bg-purple-800"
+    type="button"
+    (click)="getRecipex()"
+  >
+    Search
+  </button>
+</div>
 
 <div class="flex flex-col justify-start">
   <ng-container *ngFor="let recipe of allRecipes; let i = index">
