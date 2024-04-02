@@ -23,7 +23,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   loggedIn$ = this.loggedIn.asObservable();
 
-  private baseUrl = 'https://u06-fullstack-recipe-app.onrender.com/';
+  private baseUrl = 'https://u06-fullstack-recipe-app.onrender.com/api';
 
   private httpOptions = {
     headers: new HttpHeaders({
